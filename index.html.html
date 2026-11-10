@@ -1,67 +1,219 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f7f4ff">
-  <title>간호 공부 노트</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>나의 활동 기록</title>
   <style>
-    :root{color-scheme:light;--bg:#f7f4ff;--paper:#fff;--ink:#302b49;--muted:#77718f;--line:#e7e1f3;--lav:#e9e1ff;--lav-ink:#614bb1;--lav-deep:#7058ca;--pink:#ffe1eb;--pink-ink:#a83d69;--mint:#d8f4e8;--mint-ink:#276d56;--yellow:#fff2c8;--red:#ffe1df;--shadow:0 8px 24px #54428b12;font:16px/1.6 system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink)}button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.shell{max-width:680px;margin:auto;padding:12px 18px calc(105px + env(safe-area-inset-bottom))}.top{min-height:48px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.back,.backup-link{border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:8px 14px;min-height:44px;font-weight:700}.save-status{font-size:13px;color:var(--muted)}h1,h2,p{margin:0}h1{font-size:28px;line-height:1.25;letter-spacing:-.04em}h2{font-size:19px}.muted{color:var(--muted)}.hero{position:relative;padding:16px 0 22px}.hero p{margin-top:8px;color:var(--muted)}.bubble{position:absolute;right:9px;top:10px;width:76px;height:76px;border-radius:28px;background:var(--pink);display:grid;place-items:center;font-size:36px;transform:rotate(8deg)}.subject-card{display:flex;align-items:center;gap:14px;padding:18px;border-radius:26px;background:var(--lav);box-shadow:var(--shadow);margin:8px 0 22px}.subject-icon{display:grid;place-items:center;flex:none;width:56px;height:56px;border-radius:20px;background:#fff;color:var(--lav-ink);font-size:28px}.subject-card strong{display:block;font-size:20px}.subject-card small{color:var(--lav-ink)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 10px}.unit-list{display:grid;gap:10px}.unit-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:15px 16px;border:1px solid var(--line);border-radius:21px;background:var(--paper);color:var(--ink);box-shadow:0 3px 12px #54428b08}.unit-dot{width:12px;height:12px;border-radius:50%;background:var(--lav-deep);flex:none}.unit-copy{flex:1;min-width:0}.unit-copy strong{display:block;overflow-wrap:anywhere}.unit-copy small{color:var(--muted)}.arrow{font-size:22px;color:var(--muted)}.form-card,.card-item,.quiz-card,.empty{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;margin-top:14px}.label{display:block;color:var(--muted);font-size:14px;font-weight:700;margin:12px 0 6px}input[type=text],textarea{width:100%;min-height:48px;border:2px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);padding:10px 13px}textarea{resize:vertical;line-height:1.65}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #8e7ae4;outline-offset:3px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:46px;border:0;border-radius:999px;background:var(--lav);color:var(--lav-ink);padding:10px 17px;font-weight:750}.btn.primary{background:var(--lav-deep);color:#fff}.btn.soft-pink{background:var(--pink);color:var(--pink-ink)}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}.btn.small{min-height:38px;padding:7px 13px;font-size:14px}.row{display:flex;gap:8px}.row input{flex:1;min-width:0}.note{padding:12px 14px;border-radius:17px;background:var(--yellow);color:#745900;font-size:14px;margin:12px 0}.tabs{position:fixed;z-index:5;bottom:0;left:0;right:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:#f7f4fff2;border-top:1px solid var(--line);backdrop-filter:blur(12px)}.tabs-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:640px;margin:auto}.tab{min-height:48px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-weight:750}.tab[aria-selected=true]{background:var(--lav);color:var(--lav-ink)}.unit-title{padding:6px 0 14px}.unit-title p{color:var(--muted);font-size:14px;margin-top:5px}.paper-note{min-height:300px;background-image:repeating-linear-gradient(to bottom,transparent 0 31px,#ece8f5 31px 32px);line-height:32px;padding:8px 14px;border-radius:20px}.flashcard{perspective:1000px;min-height:260px;margin-top:14px;cursor:pointer}.flash-inner{position:relative;min-height:260px;transform-style:preserve-3d;transition:transform .45s;border-radius:25px}.flashcard.flipped .flash-inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;border:2px solid var(--line);border-radius:25px;backface-visibility:hidden;overflow-wrap:anywhere}.face.front{background:var(--paper)}.face.back{background:var(--mint);transform:rotateY(180deg)}.face small{color:var(--muted);font-weight:700}.face strong{font-size:29px;line-height:1.35;margin-top:10px}.face .definition{font-size:19px;white-space:pre-wrap}.deck-controls,.button-row{display:flex;justify-content:center;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px}.deck-count{font-weight:750}.card-item p{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--muted)}.card-item strong{font-size:17px}.card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.progress{height:9px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0 14px}.progress i{display:block;height:100%;background:var(--lav-deep);border-radius:99px}.quiz-card{text-align:center}.quiz-card .term{font-size:25px;font-weight:800;margin:18px 0 8px}.quiz-card .meaning{padding:17px;border-radius:20px;background:var(--lav);font-size:18px;overflow-wrap:anywhere}.ox-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.ox{min-height:84px;border:2px solid var(--line);border-radius:22px;background:#fff;font-size:30px;font-weight:850}.ox:first-child{color:#267157;background:#effbf5}.ox:last-child{color:#a84452;background:#fff2f2}.feedback{padding:12px;border-radius:16px;margin:12px 0;background:var(--mint)}.feedback.wrong{background:var(--red)}.empty{text-align:center;padding:25px;color:var(--muted)}.result{text-align:center;padding:24px}.score{font-size:48px;font-weight:850}.backup{margin-top:20px}.file-input{display:block;width:100%;margin-top:12px}.hidden{display:none!important}.danger-zone{border-top:1px dashed var(--line);margin-top:25px;padding-top:18px}.danger{color:#9e3e49}.hint{text-align:center;color:var(--muted);font-size:13px;margin-top:8px}
-    @media(min-width:700px){.shell{padding-top:24px}.hero{padding-top:28px}.unit-list{grid-template-columns:1fr 1fr}.unit-item{min-height:86px}.bubble{right:28px;top:18px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+    :root {
+      --bg: #f9f5ff;
+      --surface: #ffffff;
+      --surface-2: #fff7fb;
+      --lavender: #e9dfff;
+      --lavender-strong: #6d57d2;
+      --pink: #ffdfe8;
+      --pink-strong: #b9547d;
+      --mint: #dff6ed;
+      --mint-strong: #2c7d62;
+      --yellow: #fff3c7;
+      --yellow-strong: #8b6a00;
+      --ink: #2d2941;
+      --muted: #6f6782;
+      --line: #eadff6;
+      --shadow: 0 14px 32px rgba(97, 83, 151, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: linear-gradient(180deg, #f9f5ff 0%, #fdf7ff 100%);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+      color: var(--ink);
+    }
+
+    body {
+      padding: 24px 16px 56px;
+    }
+
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 84px;
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--lavender);
+      color: var(--lavender-strong);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+      margin-top: 18px;
+    }
+
+    .card.soft {
+      background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    }
+
+    .card.pink { background: var(--pink); }
+    .card.lavender { background: var(--lavender); }
+    .card.mint { background: var(--mint); }
+    .card.yellow { background: var(--yellow); }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(109, 87, 210, 0.14);
+    }
+
+    .row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .key {
+      color: var(--muted);
+      font-weight: 700;
+      min-width: 112px;
+    }
+
+    .value {
+      text-align: right;
+      font-weight: 800;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .score {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--lavender-strong);
+    }
+
+    .certs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .certs li {
+      background: rgba(255,255,255,0.45);
+      border: 1px solid rgba(109, 87, 210, 0.18);
+      border-radius: 16px;
+      padding: 10px 12px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 640px) {
+      body {
+        padding-top: 32px;
+      }
+    }
   </style>
 </head>
 <body>
-  <main id="app" class="shell"></main>
-  <script>
-  (function(){
-    'use strict';
-    var KEY='nursing-notes-v1';
-    var app=document.getElementById('app');
-    var state={subject:null,unit:null,tab:'summary',deckIndex:0,flipped:false,quiz:null,editCard:null,status:'자동 저장',timer:null};
-    function uid(prefix){return prefix+'-'+Math.random().toString(36).slice(2,10)}
-    function esc(value){return String(value==null?'':value).replace(/[&<>"']/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]})}
-    function exampleUnit(id,title,summary,cards){return {id:id,title:title,example:true,summary:summary,cards:cards.map(function(pair){return {id:uid('c'),term:pair[0],def:pair[1],known:false}}),quiz:null}}
-    function seed(){return {version:1,subjects:[{id:'body',name:'인체구조와 기능',color:'lav',units:[
-      exampleUnit('intro','인체의 구성과 항상성','인체는 세포 → 조직 → 기관 → 기관계 → 개체의 단계로 구성된다. 항상성은 외부 환경이 변해도 체내 환경을 일정하게 유지하려는 조절 작용이다.\n\n※ 예시 요약은 교재 내용에 맞게 고쳐 쓰세요.',[['항상성','외부 환경 변화에도 체내 환경을 일정하게 유지하려는 조절 작용'],['세포','생명체를 이루는 구조적·기능적 기본 단위'],['조직','비슷한 구조와 기능을 가진 세포들이 모인 것'],['기관','여러 종류의 조직이 모여 특정 기능을 수행하는 구조']]),
-      exampleUnit('cell','세포와 조직','세포막은 세포 안팎의 물질 이동을 조절한다. 세포질에는 여러 세포소기관이 있고, 핵에는 유전 정보가 들어 있다. 조직은 상피·결합·근육·신경 조직으로 구분한다.',[['세포막','세포를 둘러싸며 물질의 출입을 선택적으로 조절하는 막'],['핵','유전 정보를 보관하고 세포 활동을 조절하는 세포소기관'],['미토콘드리아','세포 호흡을 통해 ATP를 생성하는 세포소기관'],['상피조직','몸의 표면과 기관의 안쪽을 덮고 보호·흡수·분비 기능을 하는 조직']]),
-      exampleUnit('skeletal','뼈대계통','뼈대계통은 몸을 지지하고 내부 장기를 보호하며 움직임을 돕는다. 골수는 혈구 생성에 관여하고, 뼈는 칼슘과 인을 저장한다.',[['골격','몸을 지지하고 장기를 보호하며 움직임을 돕는 뼈의 구조'],['골수','뼈 속 공간에 있으며 혈구 생성 등에 관여하는 조직'],['관절','둘 이상의 뼈가 만나는 연결 부위'],['골막','관절면을 제외한 뼈의 바깥 표면을 덮는 막']]),
-      exampleUnit('heart','심장과 순환','심장은 오른심방·오른심실·왼심방·왼심실의 네 방으로 이루어진다. 오른쪽 심장은 폐순환, 왼쪽 심장은 온몸순환을 담당한다. 혈액은 동맥을 통해 심장에서 나가고 정맥을 통해 심장으로 돌아온다.',[['오른심방','온몸에서 돌아온 혈액을 받아들이는 심장의 방'],['오른심실','혈액을 폐동맥을 통해 폐로 내보내는 심장의 방'],['왼심방','폐에서 산소를 얻고 돌아온 혈액을 받아들이는 심장의 방'],['왼심실','혈액을 대동맥을 통해 온몸으로 내보내는 심장의 방'],['동맥','심장에서 나가는 혈액이 흐르는 혈관'],['정맥','심장으로 돌아오는 혈액이 흐르는 혈관']])
-    ]}]}}
-    function normalize(data){if(!data||!Array.isArray(data.subjects))return null;data.subjects.forEach(function(s){s.units=Array.isArray(s.units)?s.units:[];s.units.forEach(function(u){u.cards=Array.isArray(u.cards)?u.cards:[];u.summary=String(u.summary||'');u.quiz=u.quiz||null;u.cards.forEach(function(c){if(!c.id)c.id=uid('c');c.term=String(c.term||'');c.def=String(c.def||'');c.known=!!c.known})})});return data}
-    function load(){try{var raw=localStorage.getItem(KEY);if(raw){var parsed=normalize(JSON.parse(raw));if(parsed)return parsed}}catch(e){state.status='이 기기에서 저장소를 사용할 수 없어요'}return seed()}
-    var data=load();
-    function save(){state.status='저장 중…';showStatus();clearTimeout(state.timer);state.timer=setTimeout(flush,350)}
-    function flush(){clearTimeout(state.timer);try{localStorage.setItem(KEY,JSON.stringify(data));state.status='저장됨'}catch(e){state.status='저장하지 못했어요 · 백업해 주세요'}showStatus()}
-    function showStatus(){var el=document.querySelector('[data-status]');if(el)el.textContent=state.status}
-    window.addEventListener('pagehide',flush);
-    function subject(){return data.subjects[0]||null}
-    function findUnit(id){var s=subject();return s&&s.units.find(function(u){return u.id===id})||null}
-    function route(){var h=location.hash.slice(1);if(h.indexOf('unit-')===0&&findUnit(h.slice(5)))return {page:'unit',unit:findUnit(h.slice(5))};if(h==='backup')return {page:'backup'};if(h==='subject')return {page:'subject'};return {page:'home'}}
-    function top(back,label){return '<header class="top"><a class="back" href="'+back+'">‹ '+label+'</a><span class="save-status" data-status role="status" aria-live="polite">'+esc(state.status)+'</span></header>'}
-    function stats(s){var cards=0,known=0;s.units.forEach(function(u){cards+=u.cards.length;u.cards.forEach(function(c){if(c.known)known++})});return {units:s.units.length,cards:cards,known:known,pct:cards?Math.round(known/cards*100):0}}
-    function home(){var s=subject();if(!s){return '<div class="hero"><h1>간호 공부 노트</h1><p>과목과 단원을 만들어 공부를 시작해요.</p></div><button class="btn primary" data-action="add-subject">과목 만들기</button>'}var st=stats(s);return '<div class="hero"><div class="bubble" aria-hidden="true">♡</div><h1>간호 공부 노트</h1><p>한 단원씩, 내 속도로 차근차근 🌷</p></div><a class="subject-card" href="#subject"><span class="subject-icon">✿</span><span><strong>'+esc(s.name)+'</strong><small>단원 '+st.units+'개 · 외운 카드 '+st.known+'/'+st.cards+'</small></span></a><div class="progress"><i style="width:'+st.pct+'%"></i></div><p class="muted">과목을 눌러 단원을 골라요</p><div class="button-row"><a class="backup-link" href="#backup">내 기록 백업</a></div><p class="note">예시 내용은 공부 시작을 돕기 위한 참고용이에요. 수업 자료와 교재를 기준으로 수정해 주세요.</p>'}
-    function subjectPage(s){var units=s.units.map(function(u){var known=u.cards.filter(function(c){return c.known}).length;return '<li><a class="unit-item" href="#unit-'+encodeURIComponent(u.id)+'"><span class="unit-dot"></span><span class="unit-copy"><strong>'+esc(u.title)+(u.example?' <small>예시</small>':'')+'</strong><small>요약 '+(u.summary.trim()?'작성됨':'미작성')+' · 카드 '+u.cards.length+'장 · 외운 카드 '+known+'</small></span><span class="arrow">›</span></a></li>'}).join('');return top('#','홈')+'<section class="subject-card"><span class="subject-icon">✿</span><span><strong>'+esc(s.name)+'</strong><small>교재 목차에 맞춰 단원을 추가하세요</small></span></section><div class="section-head"><h2>단원</h2><span class="muted">'+s.units.length+'개</span></div>'+(s.units.length?'<ul class="unit-list">'+units+'</ul>':'<div class="empty">아직 단원이 없어요. 아래에서 추가해 보세요.</div>')+'<form class="form-card" data-form="add-unit"><h2>새 단원 추가</h2><label class="label" for="new-unit">단원 이름</label><div class="row"><input id="new-unit" type="text" maxlength="60" placeholder="예: 호흡계통"><button class="btn primary">추가</button></div></form>'}
-    function tabs(){return '<nav class="tabs" aria-label="단원 메뉴"><div class="tabs-inner">'+[['summary','요약'],['cards','용어 카드'],['quiz','퀴즈']].map(function(t){return '<button class="tab" type="button" data-action="tab" data-tab="'+t[0]+'" aria-selected="'+(state.tab===t[0])+'">'+t[1]+'</button>'}).join('')+'</div></nav>'}
-    function summaryPanel(u){return (u.example?'<p class="note">예시 단원이에요. 교재에 맞춰 단원명과 요약을 자유롭게 수정해 보세요.</p>':'')+'<label class="label" for="summary">내가 정리한 요약</label><textarea id="summary" class="paper-note" placeholder="교재를 읽고 핵심을 내 말로 정리해 보세요.">'+esc(u.summary)+'</textarea><section class="danger-zone"><h2>단원 관리</h2><label class="label" for="rename-unit">단원 이름 수정</label><div class="row"><input id="rename-unit" type="text" maxlength="60" value="'+esc(u.title)+'"><button class="btn" data-action="rename-unit">저장</button></div><div class="button-row"><button class="btn ghost danger" data-action="delete-unit">단원 삭제</button></div></section>'}
-    function cardForm(){return '<form class="form-card" data-form="add-card"><h2>용어 카드 만들기</h2><label class="label" for="new-term">용어</label><input id="new-term" type="text" maxlength="80" placeholder="예: 항상성"><label class="label" for="new-def">뜻</label><textarea id="new-def" rows="3" maxlength="500" placeholder="기억할 설명을 적어 보세요"></textarea><div class="button-row"><button class="btn primary">카드 추가</button></div></form>'}
-    function cardList(u){if(!u.cards.length)return '<div class="empty">아직 카드가 없어요. 용어와 뜻을 입력해 카드를 만들어 보세요.</div>';return '<div class="section-head"><h2>카드 목록</h2><span class="muted">'+u.cards.length+'장</span></div>'+u.cards.map(function(c){if(state.editCard===c.id)return '<form class="card-item" data-form="edit-card" data-id="'+esc(c.id)+'"><label class="label" for="edit-term">용어</label><input id="edit-term" type="text" maxlength="80" value="'+esc(c.term)+'"><label class="label" for="edit-def">뜻</label><textarea id="edit-def" rows="3">'+esc(c.def)+'</textarea><div class="card-actions"><button class="btn small primary">저장</button><button type="button" class="btn small ghost" data-action="cancel-edit">취소</button></div></form>';return '<article class="card-item"><strong>'+esc(c.term)+'</strong> '+(c.known?'<small>✓ 외웠어요</small>':'')+'<p>'+esc(c.def)+'</p><div class="card-actions"><button class="btn small" data-action="edit-card" data-id="'+esc(c.id)+'">수정</button><button class="btn small ghost danger" data-action="delete-card" data-id="'+esc(c.id)+'">삭제</button></div></article>'}).join('')}
-    function cardsPanel(u){var cards=u.cards,known=cards.filter(function(c){return c.known}).length;if(!cards.length)return cardForm()+cardList(u);if(state.deckIndex>=cards.length)state.deckIndex=0;var c=cards[state.deckIndex];return '<div class="section-head"><h2>외우기</h2><span class="muted">'+known+' / '+cards.length+'장 외움</span></div><div class="progress"><i style="width:'+Math.round(known/cards.length*100)+'%"></i></div><button class="flashcard '+(state.flipped?'flipped':'')+'" data-action="flip" aria-label="카드 뒤집기"><span class="flash-inner"><span class="face front"><small>용어'+(c.known?' · 외웠어요':'')+'</small><strong>'+esc(c.term)+'</strong><small>눌러서 뜻 확인</small></span><span class="face back"><small>뜻</small><strong class="definition">'+esc(c.def)+'</strong></span></span></button><div class="deck-controls"><button class="btn ghost" data-action="prev" aria-label="이전 카드">←</button><span class="deck-count">'+(state.deckIndex+1)+' / '+cards.length+'</span><button class="btn ghost" data-action="next" aria-label="다음 카드">→</button></div><div class="button-row"><button class="btn soft-pink" data-action="mark" data-known="false">다시 볼래요</button><button class="btn primary" data-action="mark" data-known="true">✓ 외웠어요</button></div>'+cardForm()+cardList(u)}
-    function canQuiz(u){return u.cards.length>=2&&u.cards.some(function(a,i){return u.cards.some(function(b,j){return i!==j&&a.def.trim().toLowerCase()!==b.def.trim().toLowerCase()})})}
-    function quizPanel(u){if(!state.quiz||state.quiz.phase==='result'){if(state.quiz&&state.quiz.phase==='result')return quizResult(u);return '<section class="quiz-card"><div style="font-size:36px">✦</div><h2>단원 복습 퀴즈</h2><p class="muted">용어와 뜻이 맞으면 O, 틀리면 X를 선택해요.</p><p class="note">'+(u.cards.length)+'장의 카드로 최대 '+Math.min(10,u.cards.length)+'문제를 만들어요.</p><button class="btn primary" data-action="start-quiz" '+(!canQuiz(u)?'disabled':'')+'>퀴즈 시작</button>'+(canQuiz(u)?'':'<p class="hint">서로 다른 뜻을 가진 카드가 2장 이상 필요해요.</p>')+'</section>'}var q=state.quiz,item=q.questions[q.index],c=u.cards.find(function(x){return x.id===item.id});if(!c){state.quiz=null;return quizPanel(u)}var feedback=q.answer===null?'':'<div class="feedback '+(q.answer===item.truth?'':'wrong')+'">'+(q.answer===item.truth?'정답이에요!':'아쉬워요. ')+(item.truth?'맞는 짝이에요.':'올바른 뜻: '+esc(c.def))+'</div>';return '<section class="quiz-card"><div class="section-head"><span>'+ (q.index+1)+' / '+q.questions.length+'</span><span>O/X 퀴즈</span></div><div class="progress"><i style="width:'+Math.round(q.index/q.questions.length*100)+'%"></i></div><p class="muted">이 용어와 뜻이 맞을까요?</p><div class="term">'+esc(c.term)+'</div><div class="meaning">'+esc(item.shown)+'</div>'+(q.answer===null?'<div class="ox-row"><button class="ox" data-action="answer" data-answer="true">O<br><small>맞아요</small></button><button class="ox" data-action="answer" data-answer="false">X<br><small>틀려요</small></button></div>':feedback+'<button class="btn primary" data-action="quiz-next">'+(q.index===q.questions.length-1?'결과 보기':'다음 문제')+'</button>')+'</section>'}
-    function quizResult(u){var q=state.quiz,wrong=q.wrong.map(function(id){return u.cards.find(function(c){return c.id===id})}).filter(Boolean);return '<section class="quiz-card result"><div style="font-size:38px">'+(q.score>=70?'🌟':'🌱')+'</div><p class="score">'+q.right+' / '+q.questions.length+'</p><h2>'+(q.score>=90?'아주 잘했어요!':q.score>=60?'잘하고 있어요!':'카드를 다시 보고 도전해 봐요.')+'</h2><p class="muted">정답률 '+q.score+'%'+(u.quiz?' · 최고 '+u.quiz.best+'%':'')+'</p></section>'+(wrong.length?'<h2 class="section-head">다시 볼 용어</h2>'+wrong.map(function(c){return '<article class="card-item"><strong>'+esc(c.term)+'</strong><p>'+esc(c.def)+'</p></article>'}).join(''):'<p class="note">틀린 문제가 없어요. 완벽해요!</p>')+'<div class="button-row"><button class="btn primary" data-action="start-quiz">다시 도전</button><button class="btn" data-action="reset-quiz">퀴즈 닫기</button></div>'}
-    function unitPage(u){var s=subject(),panel=state.tab==='cards'?cardsPanel(u):state.tab==='quiz'?quizPanel(u):summaryPanel(u);return top('#subject',s.name)+'<div class="unit-title"><h1>'+esc(u.title)+'</h1><p>요약하고, 용어를 외우고, 퀴즈로 확인해요</p></div>'+panel+tabs()}
-    function backupPage(){return top('#','홈')+'<h1>내 기록 백업</h1><p class="muted" style="margin-top:8px">학습 자료는 이 브라우저에 저장돼요. 다른 기기로 옮길 때 백업 파일을 사용하세요.</p><section class="form-card backup"><h2>내보내기</h2><p class="muted">과목 '+data.subjects.length+'개 · 단원 '+data.subjects.reduce(function(n,s){return n+s.units.length},0)+'개</p><div class="button-row"><button class="btn primary" data-action="export">JSON 파일로 저장</button></div></section><section class="form-card backup"><h2>불러오기</h2><p class="muted">백업 파일을 불러오면 현재 자료를 모두 교체합니다. 꼭 확인한 뒤 진행하세요.</p><label class="label" for="backup-file">백업 파일 선택</label><input class="file-input" id="backup-file" type="file" accept="application/json,.json"><label class="label" for="backup-text">또는 백업 JSON 붙여넣기</label><textarea id="backup-text" rows="5" placeholder="JSON 백업 내용을 붙여넣으세요"></textarea><button class="btn" data-action="import">백업 불러오기</button><p id="backup-message" class="note hidden" role="status"></p></section>'}
-    function render(){var r=route();if(r.page==='home')app.innerHTML=home();else if(r.page==='subject')app.innerHTML=subjectPage(subject());else if(r.page==='unit'){if(state.unit!==r.unit.id){state.unit=r.unit.id;state.tab='summary';state.deckIndex=0;state.flipped=false;state.quiz=null;state.editCard=null}app.innerHTML=unitPage(r.unit)}else app.innerHTML=backupPage();showStatus()}
-    function startQuiz(u){var ids=u.cards.map(function(c){return c.id}), questions=[];for(var i=ids.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var temp=ids[i];ids[i]=ids[j];ids[j]=temp}ids.slice(0,10).forEach(function(id){var c=u.cards.find(function(x){return x.id===id}),others=u.cards.filter(function(x){return x.id!==id&&x.def.trim().toLowerCase()!==c.def.trim().toLowerCase()}),truth=Math.random()<.5||!others.length,shown=truth?c.def:others[Math.floor(Math.random()*others.length)].def;questions.push({id:id,shown:shown,truth:truth})});state.quiz={phase:'question',questions:questions,index:0,answer:null,right:0,wrong:[]}}
-    app.addEventListener('input',function(e){if(e.target.id==='summary'){var u=findUnit(state.unit);if(u){u.summary=e.target.value;state.status='저장 중…';showStatus();clearTimeout(state.timer);state.timer=setTimeout(flush,450)}}});
-    app.addEventListener('submit',function(e){e.preventDefault();var form=e.target;if(form.dataset.form==='add-unit'){var title=document.getElementById('new-unit').value.trim();if(!title)return;var u={id:uid('u'),title:title,example:false,summary:'',cards:[],quiz:null};subject().units.push(u);save();location.hash='unit-'+encodeURIComponent(u.id)}else if(form.dataset.form==='add-card'){var term=document.getElementById('new-term').value.trim(),def=document.getElementById('new-def').value.trim(),u=findUnit(state.unit);if(!term||!def)return;u.cards.push({id:uid('c'),term:term,def:def,known:false});save();render()}else if(form.dataset.form==='edit-card'){var u=findUnit(state.unit),c=u.cards.find(function(x){return x.id===form.dataset.id});if(c){c.term=document.getElementById('edit-term').value.trim();c.def=document.getElementById('edit-def').value.trim();state.editCard=null;save();render()}}});
-    app.addEventListener('change',function(e){if(e.target.id==='backup-file'&&e.target.files[0]){var reader=new FileReader();reader.onload=function(){document.getElementById('backup-text').value=String(reader.result||'')};reader.readAsText(e.target.files[0])}});
-    app.addEventListener('click',function(e){var el=e.target.closest('[data-action]');if(!el)return;var action=el.dataset.action,u=findUnit(state.unit);if(action==='tab'){state.tab=el.dataset.tab;state.flipped=false;render();window.scrollTo(0,0)}else if(action==='flip'){state.flipped=!state.flipped;el.classList.toggle('flipped',state.flipped)}else if(action==='prev'||action==='next'){if(u&&u.cards.length){state.deckIndex=(state.deckIndex+(action==='next'?1:-1)+u.cards.length)%u.cards.length;state.flipped=false;render()}}else if(action==='mark'){var c=u&&u.cards[state.deckIndex];if(c){c.known=el.dataset.known==='true';state.deckIndex=(state.deckIndex+1)%u.cards.length;state.flipped=false;save();render()}}else if(action==='edit-card'){state.editCard=el.dataset.id;render()}else if(action==='cancel-edit'){state.editCard=null;render()}else if(action==='delete-card'){if(confirm('이 카드를 삭제할까요?')){u.cards=u.cards.filter(function(c){return c.id!==el.dataset.id});state.deckIndex=0;save();render()}}else if(action==='rename-unit'){var title=document.getElementById('rename-unit').value.trim();if(title){u.title=title;save();render()}}else if(action==='delete-unit'){if(confirm('이 단원과 안의 요약·카드를 삭제할까요?')){subject().units=subject().units.filter(function(x){return x.id!==u.id});save();location.hash='subject'}}else if(action==='start-quiz'){startQuiz(u);render()}else if(action==='answer'){var q=state.quiz,item=q.questions[q.index];q.answer=el.dataset.answer==='true';if(q.answer===item.truth)q.right++;else q.wrong.push(item.id);render()}else if(action==='quiz-next'){var q=state.quiz;q.index++;q.answer=null;if(q.index>=q.questions.length){q.phase='result';q.score=Math.round(q.right/q.questions.length*100);u.quiz={best:Math.max(u.quiz?u.quiz.best:0,q.score),last:q.score};save()}render();window.scrollTo(0,0)}else if(action==='reset-quiz'){state.quiz=null;render()}else if(action==='export'){var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='간호공부노트-백업.json';a.click();URL.revokeObjectURL(url)}else if(action==='import'){var message=document.getElementById('backup-message'),text=document.getElementById('backup-text').value;try{var imported=normalize(JSON.parse(text));if(!imported||!Array.isArray(imported.subjects))throw new Error('invalid');if(confirm('현재 자료를 백업 내용으로 바꿀까요?')){data=imported;flush();location.hash='';render();}}catch(err){message.textContent='백업 내용을 확인해 주세요. 올바른 JSON 파일이 아니거나 형식이 맞지 않습니다.';message.classList.remove('hidden')}}else if(action==='add-subject'){alert('이 앱은 인체구조와 기능 과목에 맞춰 구성되어 있어요.')}});
-    window.addEventListener('hashchange',function(){render();window.scrollTo(0,0)});
-    render();
-  })();
-  </script>
+  <div class="wrap">
+    <div class="header">
+      <div>
+        <h1 class="title">나의 활동 기록</h1>
+        <p class="subtitle">간호학과 학습과 활동을 한눈에 정리</p>
+      </div>
+      <span class="badge">활동</span>
+    </div>
+
+    <section class="card lavender">
+      <span class="label">참여 기록</span>
+      <div class="row">
+        <span class="key">활동명</span>
+        <span class="value">고양이</span>
+      </div>
+      <div class="row">
+        <span class="key">날짜</span>
+        <span class="value">11월 9일</span>
+      </div>
+      <div class="row">
+        <span class="key">역할</span>
+        <span class="value">고양이 2</span>
+      </div>
+    </section>
+
+    <section class="card mint">
+      <span class="label">성적</span>
+      <div class="row" style="align-items:flex-end;">
+        <span class="key">과목</span>
+        <span class="value score">인체구조와 기능</span>
+      </div>
+      <div class="row">
+        <span class="key">점수</span>
+        <span class="value score">87점</span>
+      </div>
+    </section>
+
+    <section class="card yellow">
+      <span class="label">자격증</span>
+      <ul class="certs">
+        <li>ITQ</li>
+        <li>기본인명구조사</li>
+      </ul>
+    </section>
+
+    <section class="card pink soft">
+      <span class="label">학교 활동</span>
+      <div class="row">
+        <span class="key">활동</span>
+        <span class="value">실습 준비</span>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
